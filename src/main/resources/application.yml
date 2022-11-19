@@ -4,14 +4,14 @@ spring:
       client:
         registration:
           google:
-            client-id: ENC(1RWjWXhPwEG6cY06oecq3qOw1W4CAYfz58HTPJONuGMEhoPplPT3fGAzaIoIrMLBlzxi2f45ZJd0CbCyYsm6IyV4jHb3gzWUtslmwg4OET2aOYYl7PGDdLhqWM0t9yd0flGcJZLKj/Q6MkXbdJoBlw==)
-            client-secret: ENC(dDxEBaJ3SHLmXWL5oE9yiqnN8C/n9RdeqyZsepVcZE3KFq+4NHve08JjQKrA93B6CIRFSdLw4l6bw0t3H/ZcTXT834yMUSAVjM4/TfJ9CSM=)
+            client-id: ENC(UECTFwtwVbMluXKRlLfvzN5GB/UdVEfU/m/XD6ZzkTP4zTz3in0DOf6zEjA0Kbtb8lGQK3vKw2edCGwbXe9k//gfo0KbgIK2baTppeWTnNAC6Wv4s12ibgxBar9aNvWBj4PkZIFJ+fTyQU0xaoR8CA==)
+            client-secret: ENC(gGsHRVHYjjKHYWxn8fXa51IiLEJG+XxsjWldE/H1VaaqXbARcbDxgFEBr0YZpW1iD80NIZBdRxLtOvwQe5MwD2QZtZlCg/S6pq6sOQZ+aEw=)
             scope:
               - email
               - profile
           facebook:
-            client-id: ENC(mWcr7YnSicNAUUC0/R+6kTN7hIOEJX0B9UXbEMHaVWWdfC2N96mX9vEv0K8c+XA2)
-            client-secret: ENC(03trlT0ZSHX8vSXVqfqztRBRyIF8PWj9YwiRkYYKKvGYXuYRRDo0kxndjcpB2bIZlYmRD4tOvg8hZ/bfNgiakuwt8V+JMispxw4rz4E8y00=)
+            client-id: ENC(hqdAIqis4LGjGG7TaezgdQpOvBuv3CWgb53J03pxaBli0pgZvuOgOnyxjzHSjb8H)
+            client-secret: ENC(YKxCyF04l+T51RW4CmuePOD8YPwBYofX9Vf2J0xgGJxnRaIQBeMEeXC7zMhVQRAI+RX7bZYJnziPeUiG9gOE1l0+yqiMQW1+INhg0y0eroE=)
             scope:
               - email
               - public_profile
