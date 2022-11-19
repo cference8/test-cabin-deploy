@@ -1,8 +1,8 @@
-drop database if exists Cabin_App;
+drop database if exists CabinApp;
 
-create database Cabin_App;
+create database CabinApp;
 
-use Cabin_App;
+use CabinApp;
 
 create table `users`(
 `user_id` bigint primary key auto_increment,
@@ -75,7 +75,7 @@ insert into `score_form` (`name_one`, `name_two`, `name_three`,
                         `activity_name`, `completion_date`, `completion_time`, `help_cards`, `stars`, `user_id`) values
                         ('Chris','Ellen','Becky','','','','Adandon Cabin', '2022-11-12', 136, 3, 2, 2);
 
-use cabin_app;
+use CabinApp;
 select * from Users WHERE Users.email = "cference8@gmail.com";
 select * from users;
 
