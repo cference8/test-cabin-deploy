@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Cabin Escape Room</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            background-image: url("/images/bg-01.jpg");
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="/css/home.css" rel="stylesheet">
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-start mb-0">Cabin Escape Room</h3>
+                <!-- Nav Bar -->
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a class="nav-link" href="home">Home</a>
+                    <a class="nav-link active" aria-current="page" href="scoreForm">Add Score</a>
+                    <a class="nav-link" href="contact">Contact</a>
+                    <a class="nav-link" href="admin" sec:authorize="hasRole('ROLE_ADMIN')">Admin</a>
+                </nav>
+
+            </div>
+            <div class="row m-3 mx-auto">
+                <span sec:authorize="isAuthenticated()">
+                    <form class="form-inline" method="POST" action="/logout">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                        <label for="submit">
+                            Hello : &nbsp; <span th:text="${#authentication.name}"> </span>
+                        </label>
+                        <button id="submit" class="btn btn-primary" type="submit">Logout</button>
+                    </form>
+                </span>
+                <span sec:authorize="isAnonymous()">
+                    <a class="btn btn-primary" href="#">Create Account</a> &nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-primary" th:href="@{/login}">Log in</a>
+                </span>
+            </div>
+        </header>
+        <main class="px-3">
+            <div class="container">
+                <form action="editScoreForm" method="POST">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                    <div class="banner">
+                        <h1 class="text-center">Escape Room Score Form</h1>
+                    </div>
+                    <br />
+                    <fieldset class="border p-2">
+                        <input type="hidden" th:value="${scoreForm.id}" name="id" />
+                        <legend class="w-auto">Participant Information</legend>
+                        <div class="col-lg-6 mx-auto">
+                            <div class="row">
+                                <label for="name1" class="col-form-label"> Partcipant 1<span>*</span></label>
+                                <input id="name1" type="text" name="name1" th:value="${scoreForm.name1}"
+                                    class="form-control" placeholder=" Name" required />
+                            </div>
+                            <div class="row">
+                                <label for="name2" class="col-form-label"> Partcipant 2<span>*</span></label>
+                                <input id="name2" type="text" name="name2" th:value="${scoreForm.name2}"
+                                    class="form-control" placeholder=" Name" required />
+                            </div>
+                            <div class="row">
+                                <label for="name3" class="col-form-label"> Partcipant 3<span>*</span></label>
+                                <input id="name3" type="text" name="name3" th:value="${scoreForm.name3}"
+                                    class="form-control" placeholder=" Name" required />
+                            </div>
+                            <div class="row">
+                                <label for="name4" class="col-form-label"> Partcipant 4</label>
+                                <input id="name4" type="text" name="name4" th:value="${scoreForm.name4}"
+                                    class="form-control" placeholder=" Name" />
+                            </div>
+                            <div class="row">
+                                <label for="name5" class="col-form-label"> Partcipant 5</label>
+                                <input id="name5" type="text" name="name5" th:value="${scoreForm.name5}"
+                                    class="form-control" placeholder=" Name" />
+                            </div>
+                            <div class="row pb-3">
+                                <label for="name6" class="col-form-label"> Partcipant 6</label>
+                                <input id="name6" type="text" name="name6" th:value="${scoreForm.name6}"
+                                    class="form-control" placeholder=" Name" />
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="p-2"></div>
+                    <fieldset class="border p-2">
+                        <legend class="w-auto">Group Info</legend>
+                        <div class="col-6 mx-auto">
+                            <div class="row">
+                                <label for="activity">Game Name<span>*</span></label>
+                                <input id="activity" type="text" name="activity_name"
+                                    th:value="${scoreForm.activity_name}" class="form-control" required />
+                            </div>
+                            <div class="row">
+                                <label for="cdate">Completion Date<span>*</span></label>
+                                <input id="cdate" type="date" name="completion_date"
+                                    th:value="${scoreForm.completion_date}" class="form-control" required />
+                            </div>
+                            <div class="row">
+                                <label for="ctime">Completion Time<span>*</span></label>
+                                <input id="ctime" type="text" name="minutes" th:value="${scoreForm.minutes}"
+                                    placeholder="time in minutes" class="form-control" required />
+                            </div>
+                            <div class="row">
+                                <p>Number of help cards used</p>
+                                <select type="dropdown" name="help_cards"
+                                        class="form-control" required>
+                                    <option th:each="card : ${helpCards}"
+                                            th:value="${card.key}"
+                                            th:text="${card.value}"
+                                            th:selected="${scoreForm.help_cards == card.key}"
+                                    >Help Cards</option>
+                                </select>
+                            </div>
+
+                            <button class="btn btn-primary m-3" type="submit">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </main>
+
+        <footer class="mt-auto text-white-50">
+            <a href="http://www.chris-ference.com/" target="_blank"
+                style="text-decoration: none; color:white; text-shadow: 1px 1px 10px #000;">
+                <small>© Christopher R. Ference. All rights reserved.</small>
+            </a>
+        </footer>
+    </div>
+
+</body>
+
+</html>

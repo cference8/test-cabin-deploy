@@ -1,0 +1,34 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ENC(1RWjWXhPwEG6cY06oecq3qOw1W4CAYfz58HTPJONuGMEhoPplPT3fGAzaIoIrMLBlzxi2f45ZJd0CbCyYsm6IyV4jHb3gzWUtslmwg4OET2aOYYl7PGDdLhqWM0t9yd0flGcJZLKj/Q6MkXbdJoBlw==)
+            client-secret: ENC(dDxEBaJ3SHLmXWL5oE9yiqnN8C/n9RdeqyZsepVcZE3KFq+4NHve08JjQKrA93B6CIRFSdLw4l6bw0t3H/ZcTXT834yMUSAVjM4/TfJ9CSM=)
+            scope:
+              - email
+              - profile
+          facebook:
+            client-id: ENC(mWcr7YnSicNAUUC0/R+6kTN7hIOEJX0B9UXbEMHaVWWdfC2N96mX9vEv0K8c+XA2)
+            client-secret: ENC(03trlT0ZSHX8vSXVqfqztRBRyIF8PWj9YwiRkYYKKvGYXuYRRDo0kxndjcpB2bIZlYmRD4tOvg8hZ/bfNgiakuwt8V+JMispxw4rz4E8y00=)
+            scope:
+              - email
+              - public_profile
+          github:
+            client-id: ENC(e1RdT7YfP49iAcNywiOjLJc7tCf8RLONxGrWDAQuuwrduSIHOeX4/97pLDBpo+NFvUlSkKCaEEecpHg/qa/ZJQ==)
+            client-secret: ENC(xOHfshXhDHs062AXFC4ZzI4wR3cZIh+FzfkGjkVhfetRcVev04TIensXbKnomxdbNTUb3r8IV5llRfpBLwzFehlL+F9XPiFwtMCNY6oWpZs=)
+            scope:
+              - user:email
+              - read:user
+  mail:
+    host: smtp.gmail.com
+    username: cabin.escape.room.web.app@gmail.com
+    password: ENC(0ogSdWEtMpHaugOJXX2UiKbE0bMiQOpjy1TsOIC9PjXWcZ4hIg1Lm1vROHEYT/P7BmfIp85PacP3MDOftYT1Ig==)
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

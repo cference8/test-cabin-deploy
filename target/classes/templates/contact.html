@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Contact Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" th:href="@{../vendor/bootstrap/css/bootstrap.min.css}">
+
+  <link rel="stylesheet" type="text/css" th:href="@{../fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+
+  <link rel="stylesheet" type="text/css" th:href="@{../fonts/Linearicons-Free-v1.0.0/icon-font.min.css}">
+
+  <link rel="stylesheet" type="text/css" th:href="@{../contact-style/css/main.css}">
+
+  <style>
+    .clear-css {
+      all: initial;
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+    }
+
+    .clear-css * {
+      all: unset
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center border border-dark" href="home"><a class="clear-css" href="home">Cabin Escape Room</a></h1>
+  </div>
+  <div class="container-contact100">
+    <div class="wrap-contact100">
+      <form action="sendEmail" method="post" class="contact100-form validate-form">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <span class="contact100-form-title">
+          Get in Touch
+        </span>
+        <div class="wrap-input100 validate-input" data-validate="Name is required">
+          <input class="input100" id="name" type="text" name="name" placeholder="Name">
+          <label class="label-input100" for="name">
+            <span class="lnr lnr-user"></span>
+          </label>
+        </div>
+        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+          <input class="input100" id="email" type="text" name="email" placeholder="Email">
+          <label class="label-input100" for="email">
+            <span class="lnr lnr-envelope"></span>
+          </label>
+        </div>
+        <div class="wrap-input100 validate-input" data-validate="Phone is required">
+          <input class="input100" id="phone" type="text" name="phone" placeholder="Phone">
+          <label class="label-input100" for="phone">
+            <span class="lnr lnr-phone-handset"></span>
+          </label>
+        </div>
+        <div class="wrap-input100 validate-input" data-validate="Message is required">
+          <textarea class="input100" name="comments" placeholder="Your message..."></textarea>
+        </div>
+        <div class="contact100-form-checkbox">
+          <input class="input-checkbox100" id="ckb1" type="checkbox" name="copy_email">
+          <label class="label-checkbox100" for="ckb1">
+            Send copy to my-email
+          </label>
+        </div>
+        <div class="container-contact100-form-btn">
+          <div class="wrap-contact100-form-btn">
+            <div class="contact100-form-bgbtn"></div>
+            <button type="submit" class="contact100-form-btn">
+              Send Email
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script th:src="@{../vendor/jquery/jquery-3.2.1.min.js}"></script>
+  <script th:src="@{../vendor/bootstrap/js/popper.js}"></script>
+  <script th:src="@{../vendor/bootstrap/js/bootstrap.min.js}"></script>
+  <script th:src="@{../contact-style/js/main.js}"></script>
+
+</body>
+
+</html>
