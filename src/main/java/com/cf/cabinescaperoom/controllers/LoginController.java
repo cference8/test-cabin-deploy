@@ -45,6 +45,16 @@ public class LoginController {
         return "login";
     }
 
+    @GetMapping("privacy-policy")
+    public String showPolicy() {
+        return "privacy-policy";
+    }
+
+    @GetMapping("terms")
+    public String showTerms() {
+        return "terms";
+    }
+
     private boolean isAuthenticated() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || AnonymousAuthenticationToken.class.

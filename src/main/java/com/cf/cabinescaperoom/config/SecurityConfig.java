@@ -39,7 +39,8 @@ public class SecurityConfig {
                 .antMatchers("/", "/home", "/createAccount", "/login", "/oauth2/**",
                         "/forgot_password", "/forgot_password_form",
                         "/reset_password_form", "/reset_password", "/contact-style").permitAll()
-                .antMatchers("/css/**", "/js/**", "/fonts/**", "/login-style/**", "/images/**", "/vendor/**", "/create-account-style/**").permitAll()
+                .antMatchers("/css/**", "/js/**", "/fonts/**", "/login-style/**",
+                        "/images/**", "/vendor/**", "/create-account-style/**", "/terms", "/privacy-policy").permitAll()
                 .anyRequest().hasRole("USER")
                 .and()
                 .formLogin().permitAll()
