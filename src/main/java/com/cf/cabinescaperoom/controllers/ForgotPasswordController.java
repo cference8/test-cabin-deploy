@@ -76,7 +76,7 @@ public class ForgotPasswordController {
         mailSender.send(message);
     }
 
-    public class Utility {
+    public static class Utility {
         public static String getSiteURL(HttpServletRequest request) {
             String siteURL = request.getRequestURL().toString();
             return siteURL.replace(request.getServletPath(), "");
