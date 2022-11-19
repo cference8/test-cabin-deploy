@@ -76,7 +76,7 @@ public class AdminController {
 
         scoreFormService.deleteScoreForm(id);
 
-        return "viewAllScores";
+        return "redirect:/viewAllScores";
 
     }
 
