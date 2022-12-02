@@ -9,60 +9,50 @@
 	<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="login-style/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="login-style/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="login-style/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!--===============================================================================================-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <style>
+    .clear-css {
+      all: initial;
+      font-family: 'Rubik Glitch', cursive;
+      font-size: 2rem;
+    }
 
-	<script>
-		(function($) {
-
-   		 $(".toggle-password").click(function() {
-
-        $(this).toggleClass("zmdi-eye zmdi-eye-off");
-        var input = $($(this).attr("toggle"));
-        if (input.attr("type") == "password") {
-          input.attr("type", "text");
-        } else {
-          input.attr("type", "password");
-        }
-      });
-
-		})(jQuery);
-	</script>
+    .clear-css * {
+      all: unset;
+      font-family: 'Rubik Glitch', cursive;
+      font-size: 2rem;
+    }
+    </style>
 </head>
 
 <body>
 
 <div class="limiter">
 	<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
-		<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
-			<form class="login100-form validate-form flex-sb flex-w" method="POST" action="/login">
+		<div class="wrap-login100 p-l-110 p-r-110 p-t-25 p-b-33">
+			<form class="login100-form validate-form flex-sb flex-w" method="POST" action="/login" autocomplete="false">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                    <h3 class="text-center" style="font-weight: 500;"><a class="clear-css" href="home">Cabin Escape Room</a></h3>                
 					<span class="login100-form-title p-b-53">
 						Sign In With
 					</span>
-				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-				<a th:href="@{oauth2/authorization/facebook}" class="btn-face m-b-20">
-					<i class="fa fa-facebook-official"></i>
-					Facebook
+
+				<a th:href="@{/oauth2/authorization/github}" class="btn-face m-b-20">
+					<i class="fa fa-github"></i>
+					Github
 				</a>
 
-				<a th:href="@{oauth2/authorization/google}" class="btn-google m-b-20">
+				<a th:href="@{/oauth2/authorization/google}" class="btn-google m-b-20">
 					<img src="images/icons/icon-google.png" alt="GOOGLE">
 					Google
 				</a>
@@ -77,7 +67,7 @@
 						</span>
 				</div>
 				<div class="wrap-input100 validate-input" data-validate="Username is required">
-					<input type="username" class="input100" name="username" id="username" placeholder="Username" autocomplete="new-password"/>
+					<input type="username" class="input100" name="username" id="username" placeholder="Username" autocomplete="none"/>
 					<span class="focus-input100"></span>
 				</div>
 
@@ -91,34 +81,25 @@
 					</a>
 				</div>
 				<div class="wrap-input100 validate-input" data-validate="Password is required">
-					<input type="password" class="input100" name="password" id="password" placeholder="Password" autocomplete="new-password"/>
+					<input type="password" class="input100" name="password" id="password" placeholder="Password" autocomplete="none"/>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="container-login100-form-btn m-t-17">
-					<button class="login100-form-btn" value="login" type="submit" name="submit">
+					<button class="login100-form-btn" type="submit">
 						Sign In
 					</button>
 				</div>
 
 				<div class="w-full text-center p-t-55">
-						<span class="txt2">
-							Not a member?
-						</span>
+                    <span class="txt2">
+                        Not a member?
+                    </span>
 
-					<a href="createAccount" class="txt2 bo1">
-						Sign up now
-					</a>
-				</div>
-				<div class="w-full text-center p-t-55">
-						<span class="txt2">
-							Here is the &nbsp;
-						</span>
-
-					<a href="privacy-policy" class="txt2 bo1">
-						Privacy Policy
-					</a>
-				</div>
+                    <a href="createAccount" class="txt2 bo1">
+                        Sign up now
+                    </a>
+              </div>
 			</form>
 		</div>
 	</div>
@@ -128,21 +109,12 @@
 <div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->
-<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="login-style/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/animsition/js/animsition.min.js"></script>
+<script src="login-style/bootstrap/js/popper.js"></script>
+<script src="login-style/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/bootstrap/js/popper.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/daterangepicker/moment.min.js"></script>
-<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-<script src="js/main.js"></script>
+<script src="login-style/js/main.js"></script>
 
 </body>
 

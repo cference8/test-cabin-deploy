@@ -66,7 +66,7 @@
       </div>
       <div class="row">
         <form method="POST" action="editUser" class="col-md-10">
-          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
           <input type="hidden" name="id" th:value="${user.id}" />
           <div class="form-group row">
             <label for="username" class="col-md-4 control-label">Username:</label>
@@ -111,7 +111,7 @@
           error text
         </div>
         <form method="POST" action="editPassword" class="col-md-10">
-          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
           <input type="hidden" name="id" th:value="${user.id}" />
           <div class="form-group row">
             <label for="password" class="col-md-4 control-label">

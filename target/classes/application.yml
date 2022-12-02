@@ -4,20 +4,20 @@ spring:
       client:
         registration:
           google:
-            client-id: ENC(UECTFwtwVbMluXKRlLfvzN5GB/UdVEfU/m/XD6ZzkTP4zTz3in0DOf6zEjA0Kbtb8lGQK3vKw2edCGwbXe9k//gfo0KbgIK2baTppeWTnNAC6Wv4s12ibgxBar9aNvWBj4PkZIFJ+fTyQU0xaoR8CA==)
-            client-secret: ENC(gGsHRVHYjjKHYWxn8fXa51IiLEJG+XxsjWldE/H1VaaqXbARcbDxgFEBr0YZpW1iD80NIZBdRxLtOvwQe5MwD2QZtZlCg/S6pq6sOQZ+aEw=)
+            client-id: ENC(ZXftkJehcx98+TOWPKUotdh7iTO4rIKH34JYy97pjA5Q1V7jXxmJ3LBhxYErLQtpYDo8MnmC6At3Yl7G8HEfI6lXLc+w6IMje2D/kDzcMOU0UP8PZvr23lHG4CidgR/eWiwNXeP4bmw2zTO02bhVjg==)
+            client-secret: ENC(IikNE3tS6/kEMZtWxfnKP0XDD62T54yg2Z6qJxjYqwa1R6kqCGPs35aq7LvdDmRUBg6iXWjjvf/TMdRQcW4wbvC03gia4YBD01KqzPOkE4w=)
             scope:
               - email
               - profile
           facebook:
-            client-id: ENC(hqdAIqis4LGjGG7TaezgdQpOvBuv3CWgb53J03pxaBli0pgZvuOgOnyxjzHSjb8H)
-            client-secret: ENC(YKxCyF04l+T51RW4CmuePOD8YPwBYofX9Vf2J0xgGJxnRaIQBeMEeXC7zMhVQRAI+RX7bZYJnziPeUiG9gOE1l0+yqiMQW1+INhg0y0eroE=)
+            client-id: ENC(JzpmizaXdw5gI9o6mjK0eLYyOOxtDSK7R819QUUZ4EnbqpPePFmkhadDtxUpHm6j)
+            client-secret: ENC(cVDiohHhoIChMeusvbwHjRFDUDHHdGYQfSrNAGKu1qn+LOW9IDwHhUtmWpXxPeQUhKGYnYfO0pgo+GLtlIi4B1Fon+lLHb24kH0c4O384ME=)
             scope:
               - email
               - public_profile
           github:
-            client-id: ENC(e1RdT7YfP49iAcNywiOjLJc7tCf8RLONxGrWDAQuuwrduSIHOeX4/97pLDBpo+NFvUlSkKCaEEecpHg/qa/ZJQ==)
-            client-secret: ENC(xOHfshXhDHs062AXFC4ZzI4wR3cZIh+FzfkGjkVhfetRcVev04TIensXbKnomxdbNTUb3r8IV5llRfpBLwzFehlL+F9XPiFwtMCNY6oWpZs=)
+            client-id: ENC(fqZQSd56zUp0kWMoOmPR8HqXPc5Msbij18GXxV2yK521ovLbjwbtmBQ1oDZCImIEjSBBEYrM4o52BEV0n3kwwg==)
+            client-secret: ENC(3sPJcfOni59PP0dbqBEFdcDW8yMB2DDYLH8tkbErMnuBZ3fUhObMyWwOrm8pG6mF6Crsm71M58nZYSP7M3DVYpj1JxTOILbX9sKObQM/xFQ=)
             scope:
               - user:email
               - read:user

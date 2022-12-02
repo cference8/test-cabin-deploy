@@ -79,12 +79,12 @@
                 <h3>Add User</h3>
             </div>
             <div class="row">
-                <form class="form form-inline" method="POST" action="addUser">
-                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />&nbsp;
+                <form class="form form-inline" method="POST" action="addUser" autocomplete="false">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                     <label for="username">Username:</label>&nbsp;
-                    <input type="text" name="username" id="username" />&nbsp;
+                    <input type="text" name="username" id="username" autocomplete="none"/>&nbsp;
                     <label for="password">Password:</label>&nbsp;
-                    <input type="password" name="password" id="password" />&nbsp;
+                    <input type="password" name="password" id="password" autocomplete="none"/>&nbsp;
                     <button type="submit">Add User</button>
                 </form>
             </div>
@@ -148,8 +148,7 @@
                                 <td><a href="#" th:href="@{/editScoreForm(id=${currentScore.id})}">Edit</a></td>
                                 <td>
                                     <form class="form-inline" method="POST" action="/deleteScoreForm">
-                                        <input type="hidden" th:name="${_csrf.parameterName}"
-                                            th:value="${_csrf.token}" />
+                                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                                         <input type="hidden" name="id" th:value="${currentScore.id}" />
                                         <button class="btn btn-link btn-xs" type="submit">Delete</button>
                                     </form>

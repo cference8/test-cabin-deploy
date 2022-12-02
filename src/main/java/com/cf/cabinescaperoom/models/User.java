@@ -28,6 +28,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Transient
+    private String password2;
+
     @Column(name = "first_name")
     private String firstName;
 

@@ -12,3 +12,18 @@
       });
 
 })(jQuery);
+
+(function($) {
+
+    $(".toggle-password2").click(function() {
+
+        $(this).toggleClass("zmdi-eye zmdi-eye-off toggle-password2");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+          input.attr("type", "text");
+        } else {
+          input.attr("type", "password");
+        }
+      });
+
+})(jQuery);

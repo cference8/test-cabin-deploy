@@ -37,3 +37,15 @@
     }
 }
 )(jQuery);
+
+$('#checkbox-value').text($('#ckb1').val());
+
+$("#ckb1").on('change', function() {
+  if ($(this).is(':checked')) {
+    $(this).attr('value', 'true');
+  } else {
+    $(this).attr('value', 'false');
+  }
+
+  $('#checkbox-value').text($('#ckb1').val());
+});

@@ -77,7 +77,7 @@
     </div>
     <div class="row col-12 m-3 mx-auto">
         <span sec:authorize="isAuthenticated()">
-          <form class="form-inline" method="POST" action="/logout">
+          <form class="form-inline pt-4" method="POST" action="/logout">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
             <label for="submit">
               Hello : &nbsp; <span th:text="${#authentication.name}"> </span>
@@ -93,8 +93,7 @@
   </header>
   <main>
     <div>
-      <form action="addScoreForm" method="POST">
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+      <form action="addScoreForm" method="POST" autocomplete="false">
         <div class="banner">
           <h1 class="text-center">Escape Room Score Form</h1>
         </div>
@@ -155,7 +154,7 @@
                 <option value="4"> > 10 cards</option>
               </select>
             </div>
-
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
             <button class="btn btn-primary m-3" type="submit">Submit</button>
           </div>
         </fieldset>
@@ -164,11 +163,23 @@
   </main>
 
   <footer class="mt-auto text-white-50">
-    <a href="http://www.chris-ference.com/" target="_blank"
-       style="text-decoration: none; color:white; text-shadow: 1px 1px 10px #000;">
-      <small>© Christopher R. Ference. All rights reserved.</small>
-    </a>
-  </footer>
+    <div class="row">
+      <div class="col-6 text-center">
+          <a href="terms" style="text-decoration: none; color:white; text-shadow: 1px 1px 10px #000;"><small>Terms of service</small></a>
+        </div>
+        <div class="col-6 text-center">
+          <a href="privacy-policy" style="text-decoration: none; color:white; text-shadow: 1px 1px 10px #000;"><small>Privacy Policy</small></a>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+          <a href="https://chrisference-portfolio.com/index.html" target="_blank"
+          style="text-decoration: none; color:white; text-shadow: 1px 1px 10px #000;">
+         <small>© Christopher R. Ference. All rights reserved.</small>
+       </a>
+        </div>
+    </div>
+</footer>
 </div>
 
 </body>

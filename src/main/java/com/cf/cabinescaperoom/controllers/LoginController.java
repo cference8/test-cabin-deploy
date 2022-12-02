@@ -97,9 +97,16 @@ public class LoginController {
 
                 if (!userService.existsByUsername(user.getUsername())) {
                     if(user.getPassword() != null && !user.getPassword().equals("") && user.getPassword().length() >= 6){
-                        user.setPassword(encoder.encode(user.getPassword()));
-                        user.setEnabled(true);
-                        userService.createUser(user);
+                        if(user.getPassword().equals(user.getPassword2())){
+                            user.setPassword(encoder.encode(user.getPassword()));
+                            user.setEnabled(true);
+                            userService.createUser(user);
+                        } else {
+                            FieldError error = new FieldError("user", "password2", "Passwords do not match. Try Again.");
+                            result.addError(error);
+                            model.addAttribute("errors", result.getAllErrors());
+                            return "createAccount";
+                        }
                     } else {
                         FieldError error = new FieldError("user", "password", "Password must contain at least 6 characters");
                         result.addError(error);

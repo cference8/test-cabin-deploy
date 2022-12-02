@@ -48,7 +48,7 @@
     </div>
     <div class="row col-12 m-3 mx-auto">
         <span sec:authorize="isAuthenticated()">
-          <form class="form-inline" method="POST" action="/logout">
+          <form class="form-inline pt-4" method="POST" action="/logout">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
             <label for="submit">
               Hello : &nbsp; <span th:text="${#authentication.name}"> </span>
@@ -259,14 +259,25 @@
       </li>
     </ul>
   </div>
-
-  <footer class="mt-auto text-white-50">
-    <a href="http://www.chris-ference.com/" target="_blank"
-       style="text-decoration: none; color:white; text-shadow: 1px 1px 10px #000;">
-      <small>© Christopher R. Ference. All rights reserved.</small>
-    </a>
-  </footer>
 </div>
+<footer class="mt-auto text-white-50">
+    <div class="row">
+      <div class="col-6 text-center">
+          <a href="terms" style="text-decoration: none; color:white; text-shadow: 1px 1px 10px #000;"><small>Terms of service</small></a>
+        </div>
+        <div class="col-6 text-center">
+          <a href="privacy-policy" style="text-decoration: none; color:white; text-shadow: 1px 1px 10px #000;"><small>Privacy Policy</small></a>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+          <a href="https://chrisference-portfolio.com/index.html" target="_blank"
+          style="text-decoration: none; color:white; text-shadow: 1px 1px 10px #000;">
+         <small>© Christopher R. Ference. All rights reserved.</small>
+       </a>
+        </div>
+    </div>
+</footer>
 </body>
 
 </html>

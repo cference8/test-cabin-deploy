@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
 import java.io.UnsupportedEncodingException;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 @Controller
@@ -32,26 +36,32 @@ public class ContactController {
     }
 
     @PostMapping("sendEmail")
-    public String sendContactForm(Contact contact, Model model)
+    public String sendContactForm(Contact contact, HttpServletRequest request)
             throws MessagingException, UnsupportedEncodingException {
 
-        sendEmail(contact);
+            sendEmail(contact);
 
         return "redirect:/home";
     }
 
     public void sendEmail(Contact contact)
             throws MessagingException, UnsupportedEncodingException {
-        //Get current date time
-        LocalDateTime now = LocalDateTime.now();
+        // Get current date time and timezone
+        ZoneId zid = ZoneId.of("America/Chicago");
+        LocalDateTime now = LocalDateTime.now(zid);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM-dd-yyyy HH:mm:ss");
         String formatDateTime = now.format(formatter);
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
 
-        helper.setFrom(contact.getEmail(), "Cabin Contact Page");
-        helper.setTo("cabin.escape.room.web.app@gmail.com");
+        helper.setFrom("cabin.escape.room.web.app@gmail.com", "Cabin Contact Page");
+
+        if(contact.isCopy_email()) {
+            helper.setTo(new String[]{"cabin.escape.room.web.app@gmail.com", contact.getEmail()});
+        } else {
+            helper.setTo("cabin.escape.room.web.app@gmail.com");
+        }
 
         String subject = "Email from Cabin Web App";
 
@@ -92,8 +102,8 @@ public class ContactController {
                 + "<p"
                 + "style='margin:0;font-size:14px;line-height:1.2;word-break:break-word;margin-top:0;margin-bottom:0'>"
                 + "Someone just submitted a <span"
-                + "class='il'>form</span> on localhost:8080/contact"
-                + "Here's what they had to say:"
+                + "class='il'>form</span> on https://chris-ference.com/contact"
+                + " Here's what they had to say:"
                 + "</p>"
                 + "</div>"
                 + "</div>"
@@ -102,7 +112,8 @@ public class ContactController {
                 + "<p style='margin:0;font-size:14px;line-height:1.5;word-break:break-word;margin-top:0;margin-bottom:0'>"
                 + "<span style='color:#999999'>name</span>"
                 + "</p>"
-                + "<span style='margin:0;font-size:16px;line-height:1.5;word-break:break-word;margin-top:0;margin-bottom:0;font-size:16px'>" + contact.getName() + " "
+                + "<span style='margin:0;font-size:16px;line-height:1.5;word-break:break-word;margin-top:0;margin-bottom:0;font-size:16px'>"
+                + contact.getName() + " "
                 + "</span>"
                 + "</div>"
                 + "</div>"
@@ -166,8 +177,7 @@ public class ContactController {
                 + "</table>"
                 + "</div>"
                 + "</div>"
-                + "</div>"
-        ;
+                + "</div>";
         helper.setText(content, true);
 
         mailSender.send(message);

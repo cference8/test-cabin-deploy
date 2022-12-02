@@ -31,20 +31,17 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
-        return http.authorizeRequests()
-                .antMatchers("/admin/**")
-                .access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/viewScores", "/scoreForm", "/addScoreForm", "/form", "/contact")
-                .access("hasRole('ROLE_USER')")
-                .antMatchers("/", "/home", "/createAccount", "/login", "/oauth2/**",
-                        "/forgot_password", "/forgot_password_form",
-                        "/reset_password_form", "/reset_password", "/contact-style").permitAll()
-                .antMatchers("/css/**", "/js/**", "/fonts/**", "/login-style/**",
-                        "/images/**", "/vendor/**", "/create-account-style/**", "/terms", "/privacy-policy").permitAll()
-                .anyRequest().hasRole("USER")
+         http.authorizeRequests()
+                .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/viewScores", "/scoreForm", "/addScoreForm", "/form", "/viewAllScores", "/editScoreForm", "/viewDetails*",
+                "/contact", "/login/**", "/logout").access("hasRole('ROLE_USER')")
+                .antMatchers("/", "/home").permitAll()
+                .antMatchers("/resources/", "/login/**", "/logout").permitAll()
                 .and()
                 .formLogin().permitAll()
                 .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/home", true)
                 .failureUrl("/login?login_error=1")
                 .usernameParameter("username")
                 .passwordParameter("password")
@@ -58,9 +55,12 @@ public class SecurityConfig {
                 .successHandler(oauthLoginSuccessHandler)
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll()
+                .deleteCookies("JSESSIONID")
                 .and()
-                .exceptionHandling().accessDeniedPage("/error/403")
-                .and().build();
+                .rememberMe()
+                .key("uniqueAndSecret");
+
+                return http.build();
     }
 
     @Autowired

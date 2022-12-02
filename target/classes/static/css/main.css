@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
 
-
+h3 {
+    font-family: 'Rubik Glitch', cursive;
+}
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -7,22 +10,22 @@
 
 @font-face {
   font-family: Poppins-Regular;
-  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+  src: url('../login-style/fonts/poppins/Poppins-Regular.ttf'); 
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+  src: url('../login-style/fonts/poppins/Poppins-Medium.ttf'); 
 }
 
 @font-face {
   font-family: Montserrat-Medium;
-  src: url('../fonts/montserrat/Montserrat-Medium.ttf'); 
+  src: url('../login-style/fonts/montserrat/Montserrat-Medium.ttf'); 
 }
 
 @font-face {
   font-family: Montserrat-SemiBold;
-  src: url('../fonts/montserrat/Montserrat-SemiBold.ttf'); 
+  src: url('../login-style/fonts/montserrat/Montserrat-SemiBold.ttf'); 
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -268,7 +271,7 @@ iframe {
 
 .btn-face {
   color: #fff;
-  background-color: #3b5998;
+  background-color: #000000;
 }
 
 .btn-face i {
